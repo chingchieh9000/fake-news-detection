@@ -37,6 +37,7 @@ def get_random_news_text():
 
     # Load the news data from the CSV file
     news_data = pd.read_csv("test.csv")  # Replace "news_data.csv" with your actual file path
+    news_data = news_data.dropna(how="any")
 
     # Select a random news text article
     random_index = random.randint(0, len(news_data) - 1)
