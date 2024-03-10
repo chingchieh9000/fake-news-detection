@@ -1,2 +1,1 @@
-# fake-news-detection
-Fake news detection
+"# Fake_news_detection" 
