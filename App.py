@@ -31,17 +31,15 @@ def fake_news(news):
 
 
 def get_random_news_text():
-    """
-    Reads news content from a CSV file and returns a random news text.
-    """
+    
 
     # Load the news data from the CSV file
-    news_data = pd.read_csv("test.csv")  # Replace "news_data.csv" with your actual file path
-    news_data = news_data.dropna(how="any")
+    news_data = pd.read_csv("test.csv")  
+    news_data = news_data.dropna(how="any").reset_index(drop=True)
 
     # Select a random news text article
     random_index = random.randint(0, len(news_data) - 1)
-    random_news_text = news_data.loc[random_index, "text"]  # Assuming the column name is "news_text"
+    random_news_text = news_data.loc[random_index, "text"] 
 
     return random_news_text
 
@@ -61,7 +59,7 @@ if __name__ == '__main__':
   if input_method == "Fetch Random News":
       # Fetch random news and update the text box with a key argument
       sentence = st.text_area("Enter your news content here OR Fetch Random News", get_random_news_text(), height=300, key="news_text")
-      st.write("**Fetched Random News:**")  # Optional confirmation message
+      st.write("**Fetched Random News:**") 
 
   # Rest of your code...
   predict_btt = st.button("Predict")
